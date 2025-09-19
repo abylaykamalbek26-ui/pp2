@@ -1,133 +1,85 @@
-# Составлено по GitHowTo (уроки 1–14)
-# (каждая команда — строка с комментарием и следующей за ней самой командой)
-
-# Установка Git (Linux)
-# yum install git-core
-# apt-get install git-core
-# zypper in git-core
-
-# Установка Git (Mac)
-# brew install git
-
-# Установка Git (Windows)
-# (см. Git for Windows: git-for-windows.github.io)
-
-# установка имени пользователя для Git
+# # задать имя пользователя
 # git config --global user.name "Your Name"
 
-# установка электронной почты для Git
+# # задать email пользователя
 # git config --global user.email "your_email@whatever.com"
 
-# задать имя ветки по умолчанию (например, main)
+# # установить main веткой по умолчанию
 # git config --global init.defaultBranch main
 
-# корректная обработка окончаний строк (Unix/Mac)
+# # настройка переноса строк (Unix/Mac)
 # git config --global core.autocrlf input
 # git config --global core.safecrlf warn
 
-# корректная обработка окончаний строк (Windows)
-# git config --global core.autocrlf true
-# git config --global core.safecrlf warn
-
-# создание рабочей директории проекта
+# # создание рабочей папки
 # mkdir work
 
-# переход в директорию проекта
+# # переход в папку
 # cd work
 
-# создание файла (пример)
+# # создать файл hello.html
 # touch hello.html
 
-# инициализация Git-репозитория в папке
+# # инициализация репозитория
 # git init
 
-# добавление одного файла в индекс (staging area)
+# # добавить файл в индекс
 # git add hello.html
 
-# добавление всех изменений / всех файлов в индекс
-# git add .
+# # первый коммит
+# git commit -m "Initial Commit"
 
-# первоначальный коммит с комментарием
-# git commit -m "Initial commit"
-
-# коммит (открывает редактор для ввода сообщения, если не указан -m)
-# git commit
-
-# проверка состояния репозитория / рабочей директории
+# # проверить статус
 # git status
 
-# переименование ветки master в main (если нужно)
-# git branch -m master main
+# # редактирование файла (пример)
+# <h1>Hello, World!</h1>
 
-# просмотр истории коммитов
-# git log
-
-# сокращённый вывод истории (одной строкой)
-# git log --oneline
-
-# с ограничением количества записей в логе
-# git log --oneline --max-count=2
-
-# показать коммиты за последний промежуток времени
-# git log --oneline --since="5 minutes ago"
-# git log --oneline --until="5 minutes ago"
-
-# показать коммиты по автору
-# git log --oneline --author="Your Name"
-
-# показать все ветки в графическом виде (варианты)
-# git log --all --graph
-
-# показ последнего коммита
-# git log --max-count=1
-
-# изменение файлов в рабочей директории (пример: добавить тег h1 в hello.html)
-# (редактирование файла происходит в любом текстовом редакторе)
-
-# отмена локальных изменений в рабочем каталоге (сброс к последнему коммиту)
-# git restore hello.html
-
-# показ содержимого файла (оболочка)
-# cat hello.html
-
-# индексирование изменений (подготовка к коммиту)
+# # снова добавить файл
 # git add hello.html
 
-# снятие индексации (удалить из staging area)
-# git restore --staged <file>
-# git restore --staged hello.html
+# # проверить статус
+# git status
 
-# отмена проиндексированных изменений и восстановление рабочего каталога
-# git restore hello.html
+# # добавить несколько файлов
+# git add a.html
+# git add b.html
 
-# альтернативы / подсказки, выводимые git status при действиях:
-# (use "git add <file>..." to update what will be committed)
-# (use "git restore <file>..." to discard changes in working directory)
-# (use "git restore --staged <file>..." to unstage)
+# # закоммитить изменения
+# git commit -m "Changes for a and b"
 
-# Примечание: некоторые примеры используют shell-команды для работы с файлами:
-# mv hello.html index.html
-# ls -C .git/objects/09
-# cat .git/config
+# # добавить другой файл
+# git add c.html
 
-# --------------------
-# Тема 14. Создание и переключение веток
-# --------------------
+# # отдельный коммит для него
+# git commit -m "Unrelated change to c"
 
-# показать список веток
-# git branch
+# # показать журнал коммитов
+# git log
 
-# создать новую ветку (например, 'experiment')
-# git branch experiment
+# # журнал в одну строку
+# git log --pretty=oneline
+# git log --oneline --max-count=2
+# git log --oneline --since="5 minutes ago"
+# git log --oneline --until="5 minutes ago"
+# git log --oneline --author="Your Name"
+# git log --oneline --all
+# git log --all --pretty=format:"%h %cd %s (%an)" --since="7 days ago"
 
-# переключиться на ветку experiment
-# git switch experiment
-
-# альтернатива (старый способ переключения)
-# git checkout experiment
-
-# создать новую ветку и сразу переключиться на неё
-# git switch -c experiment
-
-# вернуться на основную ветку main
+# # переключиться на основную ветку
 # git switch main
+
+# # добавить файл в индекс
+# git add hello.html
+
+# # проверить состояние
+# git status   # показывает, что изменилось
+
+# # добавить все файлы
+# git add .    # индексирует все изменения сразу
+
+# # сделать коммит
+# git commit -m "message"
+
+# # отправить изменения на GitHub
+# git push
