@@ -78,32 +78,32 @@ movies = [
 ]
 
 
-1
-def is_good_movie(movie):
-    return movie["imdb"] > 5.5
-print(is_good_movie(movies[0]))
+# 1
+# def is_good_movie(movie):
+#     return movie["imdb"] > 5.5
+# print(is_good_movie(movies[0]))
 
-2
-def movies_above_5_5(movies):
-    return [movie for movie in movies if movie["imdb"] > 5.5]
-print(movies_above_5_5(movies))
+# 2
+# def movies_above_5_5(movies):
+#     return [movie for movie in movies if movie["imdb"] > 5.5]
+# print(movies_above_5_5(movies))
 
-3
-def movies_by_category(movies, category):
-    return [movie for movie in movies if movie["category"].lower() == category.lower()]
-print(movies_by_category(movies, "Romance"))
+# 3
+# def movies_by_category(movies, category):
+#     return [movie for movie in movies if movie["category"].lower() == category.lower()]
+# print(movies_by_category(movies, "Romance"))
 
-4 
-def average_imdb_score(movies):
-    total_score = sum(movie["imdb"] for movie in movies)
-    return total_score / len(movies)
-print(average_imdb_score(movies))
+# 4 
+# def average_imdb_score(movies):
+#     total_score = sum(movie["imdb"] for movie in movies)
+#     return total_score / len(movies)
+# print(average_imdb_score(movies))
 
-5
-def average_imdb_score_by_category(movies, category):
-    category_movies = [movie for movie in movies if movie["category"].lower() == category.lower()]
-    if category_movies:
-        total_score = sum(movie["imdb"] for movie in category_movies)
-        return total_score / len(category_movies)
-    return 0
-print(average_imdb_score_by_category(movies, "Romance"))
+# 5
+# def average_imdb_score_by_category(movies, category):
+#     category_movies = [movie for movie in movies if movie["category"].lower() == category.lower()]
+#     if category_movies:
+#         total_score = sum(movie["imdb"] for movie in category_movies)
+#         return total_score / len(category_movies)
+#     return 0
+# print(average_imdb_score_by_category(movies, "Romance"))
