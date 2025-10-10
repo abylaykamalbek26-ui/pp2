@@ -1,6 +1,6 @@
 import json
 
-with open(r"c:\Users\binur\OneDrive\Рабочий стол\PP2_labs\lab_4\json\sample-data.json") as file:
+with open(r"C:\Users\Abylay\projects\pp2\lab4\json\sample-data.json") as file:
     data = json.load(file)
 
 interfaces = data["imdata"]
