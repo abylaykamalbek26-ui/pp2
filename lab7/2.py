@@ -2,7 +2,7 @@ import pygame
 import os
 
 pygame.init()
-screen = pygame.display.set_mode((800,800))
+screen = pygame.display.set_mode((800,600))
 
 
 music_folder = "music"
@@ -24,18 +24,18 @@ pygame.mixer.music.play(0)
 
 play_mus = True 
 
-done=False
-while not done:
+running = True
+while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            done = True
+            running = False
             
         if event.type == pygame.KEYDOWN: 
             if event.key == pygame.K_SPACE:
                 if play_mus:
                     play_mus = False
                     pygame.mixer.music.pause()
-                else:
+                elif play_mus == False:
                     play_mus = True
                     pygame.mixer.music.unpause()
 
@@ -49,28 +49,28 @@ while not done:
                 pygame.mixer.music.load(playlist[index])
                 pygame.mixer.music.play()
     
-    screen.fill((255,255,255))
+    screen.fill((0,0,0))
     
     font= pygame.font.Font(None, 30)
-    text= font.render(os.path.basename(playlist[index]), True, (255, 255, 255),(255, 0, 150))
+    text= font.render(os.path.basename(playlist[index]), True, (255, 255, 255))
     
     
-    screen.blit(text, (310, 400))
+    screen.blit(text, (300, 200))
     play = pygame.transform.scale(play, (75, 75))
-    paus = pygame.transform.scale(paus, (75, 75))
+    pause = pygame.transform.scale(pause, (75, 75))
     
     
     if play_mus:
-        screen.blit(paus, (370, 590))
-    else: 
-        screen.blit(play, (370, 590))
+        screen.blit(pause, (370, 400))
+    elif play_mus == False: 
+        screen.blit(play, (370, 400))
         
         
     next = pygame.transform.scale(next, (75, 75))
-    screen.blit(next, (450, 590))
+    screen.blit(next, (450, 400))
     
     
     prev = pygame.transform.scale(prev, (75, 75))
-    screen.blit(prev, (280, 590))
+    screen.blit(prev, (280, 400))
 
     pygame.display.flip()
