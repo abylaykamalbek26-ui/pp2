@@ -2,7 +2,6 @@ import pygame
 
 pygame.init()
 screen = pygame.display.set_mode((800,400))
-screen.fill("White")
 running = True
 
 circle_move = 20
@@ -24,7 +23,7 @@ while running:
     elif keys[pygame.K_UP] and circle_y > 25:
         circle_y -= circle_move
     elif keys[pygame.K_DOWN] and circle_y < 400 :
-        circle_y = circle_move        
+        circle_y += circle_move        
 
     screen.fill("White")
 
