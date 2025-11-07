@@ -10,11 +10,11 @@ def main():
     mode = 'blue'  
     drawing = False
     last_pos = None
-    drow = []       # рисованный линии
-    shapes = []     # все прямоугольник
-    circles = []    #все круги
-    rect_start = None  #начало риктенгла
-    circle_start = None  # начала серкл 
+    drow = []     
+    shapes = []   
+    circles = []   
+    rect_start = None
+    circle_start = None 
     
     while True:
         pressed = pygame.key.get_pressed()
@@ -31,19 +31,24 @@ def main():
                     return
                 if event.key == pygame.K_ESCAPE:
                     return
-                
-                # инструменты доступ  клавиши 
-                if event.key == pygame.K_r:
+            
+                if event.key == pygame.K_1:
                     mode = 'red'
-                elif event.key == pygame.K_g:
+                elif event.key == pygame.K_2:
                     mode = 'green'
-                elif event.key == pygame.K_b:
+                elif event.key == pygame.K_3:
+                    mode = 'blue'
+                elif event.key == pygame.K_4:
+                    mode = 'blue'
+                elif event.key == pygame.K_5:
+                    mode = 'blue'
+                elif event.key == pygame.K_6:
                     mode = 'blue'
                 elif event.key == pygame.K_e:
                     mode = 'eraser'
-                elif event.key == pygame.K_t:
+                elif event.key == pygame.K_r:
                     mode = 'rectangle'
-                elif event.key == pygame.K_y:
+                elif event.key == pygame.K_c:
                     mode = 'circle'
             
             
@@ -58,9 +63,9 @@ def main():
                         drawing = True
                         last_pos = event.pos
                 
-                elif event.button == 4:  #верх
+                elif event.button == 4: 
                     radius = min(200, radius + 1)
-                elif event.button == 5:  #вниз
+                elif event.button == 5: 
                     radius = max(1, radius - 1)
 
             if event.type == pygame.MOUSEBUTTONUP:
@@ -84,24 +89,22 @@ def main():
 
         screen.fill((0, 0, 0))
         
-        # линии
         for start, end, width, color_mode in drow:
             drawLineBetween(screen, start, end, width, color_mode)
         
-        # квадрат
         for start, end in shapes:
             drawRectangle(screen, start, end)
         
-        # серкл
+
         for start, end in circles:
             drawCircle(screen, start, end)
         
-        # рисунок прямоугольника
+
         if rect_start is not None and mode == 'rectangle':
             mouse_pos = pygame.mouse.get_pos()
             drawRectangle(screen, rect_start, mouse_pos, preview=True)
         
-        # рисунок круга
+
         if circle_start is not None and mode == 'circle':
             mouse_pos = pygame.mouse.get_pos()
             drawCircle(screen, circle_start, mouse_pos, preview=True)
